@@ -1,0 +1,38 @@
+*,*:after, *:before{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.btn__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#listItem {
+    width: 20%;
+    margin: 100px auto;
+}
+
+.diss {
+    pointer-events: none;
+}
+
+.list{
+    list-style: none;
+    font-family: cursive;
+}
+
+li {
+    padding: 5px;
+}
+
+li:hover {
+    background-color: rgb(85, 74, 74);
+    color: aliceblue;
+}
+
+.list1{
+    list-style: none;
+}
