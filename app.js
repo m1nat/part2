@@ -1,213 +1,184 @@
-// console.log('hello');
+// const fetchTodos = () => fetch('https://jsonplaceholder.typicode.com/todos/1');
+// const fetchUsers = () => fetch('https://jsonplaceholder.typicode.com/users');
 
-// for (let index = 0; index < 10; index++) {
-//     console.log(index);
-// }
-// console.log('End');
+// const todoURL = 'https://jsonplaceholder.typicode.com/todos/1';
+// const userURL = 'https://jsonplaceholder.typicode.com/users';
 
-// setInterval( () => {
-//     console.log('Test');
-// }, 1000);
-
-// setTimeout(() => {
-//     console.log('test');
-// }, 2000);
-
-// const myInterv = setInterval(() => {
-//     console.log('Test');
-// }, 1000);
-
-// setTimeout(() => {
-//     console.log('Complete.');
-//     clearInterval(myInterv);
-// }, 5000);
-
-// console.log('Hello');
-
-// setTimeout(() => {
-//     console.log('setTimeout');
-// }, 0);
-
-// console.log('The End');
-
-// let from = 1;
-// let to = 5;
-// let count = 0;
-
-// function printNumbers(from, to) {
-//   let count = from;
-
-//   const interval = setInterval(() => {
-//     console.log(count);
-//     count++;
-//     if( count == to + 1){
-//       clearInterval(interval)
-//     }
-//   }, 500);
-// }
-
-// printNumbers(from, to);
-
-// setTimeout( () => {
-//   console.log('Start Loading...');
-//   setTimeout( () => {
-//     console.log('Continue loading...');
-//     setTimeout( () => {
-//       console.log('Data processing');
-//       setTimeout( () => {
-//         console.log('Completed');
-//       }, 1000);
-//     }, 500);
-//   }, 2000);
-// }, 2000);
-
-// try {
-//   let x = 0;
-//   x++;
-//   console.log('Try');
-// } catch (error) {
-//   console.log('Catch', error);
-// } finally {
-//   console.log('finally');
-// }
-
-// console.log('end');
-
-// _____________________________________________________________________________
-
-// const fetchTodo = () => fetch("https://jsonplaceholder.typicode.com/todos/1");
-// const start = () => console.log("Start loading...");
-
-// const myPromise = new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     start();
-//     // fetchTodo()
-//     // .then(response => response.json())
-//     // .then(result => console.log(result))
-//     // .catch( err => console.log('Error', err))
-//     // .finally( () => console.log('Finally'));
-//     const obj = {
-//       name: "Vitaliy",
-//       age: 29,
-//     };
-    // resolve(obj);
-//     reject("Unknow error");
-//   }, 1000);
-// });
-
-// myPromise
-//   .then((result) => {
-//     const newResult = result;
-//     newResult.job = "Web Dev";
-//     return newResult;
-//   })
-//   .then((res) => console.log("End", res))
-//   .catch((err) => console.log("Error", err))
-//   .finally(() => console.log("Finally"))
-
-// setTimeout(() => {
-//   console.log("Timeout");
-// }, 1000);
-
-
-
-
-// const myProm = new Promise(resolve =>{
-//   setTimeout(() => {
-//     const user = {
-//       name: 'Vitaliy',
-//       age: 29
-//     }
-//     resolve(user);
-//   }, 3000);
-
-// });
-
-// myProm
-//   .then( result => console.log('result:', result)) 
-  
-
-// _________________________________________________________
-
-
-// const fetchTodo = () => fetch("https://jsonplaceholder.typicode.com/todos/1");
-
-// const myPromise = new Promise((resolve, reject) => {
-//     fetchTodo()
+// const fetchDataByURL = url => new Promise ( (resolve, reject) => {
+//     fetch(url)
 //     .then(response => response.json())
-//     .then(result => resolve(result))
-//     .catch( err => reject(err))
-// });
+//     .then(res => resolve(res))
+//     .catch(err => reject(new Error(err)))
+// })
 
-// myPromise
-//   .then(res => console.log('succes', res)
-//   .catch(err => console.log("Error", err))
-//   .finally( () => console.log("Finally")))
+// const getData = async () => {
+//     let users = null;
+//     let todos = null;
 
-// ________________________________________________________________
+//     try {
+//         users = await fetchDataByURL(userURL);
+//         todos = await fetchDataByURL(todoURL);
+//     } catch (error) {
+//         console.log('Error', error);
+//     }finally {
+//         return users && todos ? { users, todos } : null
+//     }
 
-// const fetchTodo = () => fetch("https://jsonplaceholder.typicode.com/todos/15");
-// const fetchTodo = () => fetch("https://jsonplaceholder.typicode.com/users");
+
+// };
+
+// let result;
+// getData()
+//     .then( res => {
+//         result = res;
+//         console.log(result);
+//     })
+
+// ___________________________________________________________________________________________________________________________________
+
+// const arr = [2, 14, 8, 5, 6, 21, 54];
+
+// console.log(arr.indexOf(14));
+
+// arr.forEach( (el, i, array) => {
+//     console.log(el, i);
+//     // перебирает массив только.
+// })
+
+// const newArr = arr.map( (item, index, array) => {
+//     return item * 2;
+// })
+// console.log(newArr);
+
+// const newArr = arr.filter( (item, index, array) => {
+//     return !(item % 2)
+// })
+// console.log(newArr);
+
+// const newArr = arr.reduce( (acc, item, index, array) => {
+//     return [...acc, { name: 'Vitaliy', age: item * 2 }];
+// }, []);
+
+// const obj = {
+//     name: 'Vitaliy',
+//     age: 29,
+//     job: 'Engeener'
+// }
+
+// console.log(Object.keys(obj));
+// console.log(Object.values(obj));
 
 
+// const idx = newArr.findIndex( item => item.age === 16)
+
+// console.log(idx);
+
+// console.log(newArr);
+
+// console.log(newArr.find( item => {
+//     return item.age === 108;
+// }));
+
+// _______________________________________________________________
+// const users = [
+//     {
+//         name: 'Vitaliy',
+//         age: 29,
+//         job: 'Engeener'
+//     },
+//     {
+//         name: 'Anastasia',
+//         age: 19,
+//         job: 'Engeener'
+//     },
+//     {
+//         name: 'Victoria',
+//         age: 28,
+//         job: 'Engeener'
+//     }
+// ];
+
+// const upper = users.reduce( (acc, item) => {
+//     return [...acc, item.name.toUpperCase()]
+// }, [])
+
+// console.log(upper);
+// ______________________________________________________________________________
+// const arr = [2, 14, 8, 5, 6, 21, 54];
+
+
+// function myName(arr, num) {
+//     arr.filter( (el, index) => {
+//         return index < num
+//     })
+// }
+
+// const result =  myName(arr, 4)
+
+// console.log(result);
 // ____________________________________________________________________________
 
-// const startPromise =  new Promise( resolve => {
-//   setTimeout(() => {
-//     console.log('First promise');
-//     resolve()
-//   }, 1000);
-// });
+// const arr = [2, 14, 8, 5, 6, 21, 54];
 
-// const MidlePromise =  new Promise( resolve => {
-//   setTimeout(() => {
-//     console.log('Midle promise');
-//     resolve()
-//   }, 2000);
-// });
+// const getLast = ( arr, n ) => arr.filter( (item, index, arr) => index > arr.length - 1 - n)
 
-// const EndtPromise =  new Promise( resolve => {
-//   setTimeout(() => {
-//     console.log('End promise');
-//     resolve()
-//   }, 3000);
-// });
+// console.log(getLast(arr, 1));
 
-// startPromise
-//   .then ( () => MidlePromise)
-//   .then ( () => EndtPromise)
-//   .then ( () => console.log('Finish'))
+// _____________________________________________________________________________________
 
-// Promise.all([startPromise, MidlePromise, EndtPromise])
-// .then ( () => console.log('Complete'));
+// const arr = [2, 14, 8, 5, 6, 21, 54, 31];
 
-// Promise.race([startPromise, MidlePromise, EndtPromise])
-// .then ( () => console.log('Complete'));
+// const getLast = ( arr, from, to) => 
+//     arr.filter( (item, index) => {
+//         return index >= from && index <= to
+// })
 
-// ________________________________________________________________
+// console.log(getLast(arr, 1, 3));
 
-// const startPromise = () =>  new Promise( resolve => {
-//   setTimeout(() => {
-//     console.log('First promise');
-//     resolve()
-//   }, 3000);
-// });
+// ____________________________________________________________________________________________
 
-// const MidlePromise = () =>   new Promise( resolve => {
-//   setTimeout(() => {
-//     console.log('Midle promise');
-//     resolve()
-//   }, 2000);
-// });
+// const users = [
+//     {
+//         name: 'Vitaliy',
+//         age: 29,
+//         surname: 'Sinkevich'
 
-// const EndtPromise = () =>  new Promise( resolve => {
-//   setTimeout(() => {
-//     console.log('End promise');
-//     resolve()
-//   }, 3000);
-// });
+//     },
+//     {
+//         name: 'Anastasia',
+//         age: 19,
+//         surname: 'Kevich'
+//     },
+//     {
+//         name: 'Victoria',
+//         age: 28,
+//         surname: 'Vich'
+//     }
+// ];
 
-// startPromise()
-//   .then ( () => MidlePromise())
-//   .then ( () => EndtPromise())
-//   .then ( () => console.log('Finish'))
+// const transform = users => 
+//     users.reduce( (acc, item) => {
+//         return [...acc , {fullname: `${item.name} ${item.surname}`, age: item.age}]
+//     }, [])
+
+
+// transform(users);
+// console.log(transform(users));
+
+// ________________________________________________________________________________________________________________________
+
+// const str = 'Hello world';
+
+// console.log(str.split(' ').reverse().join(' '));
+// __________________________________________________________________________________________________________________
+
+// let str = '2025-12-31'
+
+// let newStr = str.split('-')
+
+
+
+// const letStart = newStr.reduce( (cur, item, index, arr) => {
+//     return  [...cur, arr[arr.length - 1 - index]]
+// }, [])
+// console.log(letStart);
